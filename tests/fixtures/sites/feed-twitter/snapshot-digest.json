@@ -1,0 +1,12 @@
+{
+  "name": "feed-twitter",
+  "title": "Social Feed",
+  "expectedRefs": [
+    "A1",
+    "A2",
+    "A3",
+    "A4"
+  ],
+  "nodeCount": 15,
+  "generatedAt": "2026-09-20T00:00:00.000Z"
+}

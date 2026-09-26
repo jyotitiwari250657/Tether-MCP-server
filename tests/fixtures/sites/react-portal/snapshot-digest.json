@@ -1,0 +1,11 @@
+{
+  "name": "react-portal",
+  "title": "React Portal Modal",
+  "expectedRefs": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "nodeCount": 15,
+  "generatedAt": "2026-09-20T00:00:00.000Z"
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Same-Origin Iframe</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div><h1>Parent Frame</h1><iframe id="child-frame" srcdoc="<html><body><button id='iframe-btn'>Iframe Action</button></body></html>"></iframe></div>
+</body>
+</html>

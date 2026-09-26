@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Tether — AI Browser Connector (Internal Full)",
+  "short_name": "Tether",
+  "version": "0.1.0",
+  "description": "Lets an AI assistant you choose read and act on web pages you permit, with approval prompts and a local audit log.",
+  "minimum_chrome_version": "126",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "scripting",
+    "activeTab",
+    "sidePanel",
+    "offscreen",
+    "alarms",
+    "nativeMessaging",
+    "webNavigation",
+    "downloads",
+    "notifications"
+  ],
+  "optional_permissions": [],
+  "host_permissions": ["<all_urls>"],
+  "optional_host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "/background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "/sidepanel.html"
+  },
+  "action": {
+    "default_popup": "/popup.html",
+    "default_title": "Tether"
+  },
+  "content_scripts": [],
+  "icons": {
+    "16": "/icons/icon16.png",
+    "48": "/icons/icon48.png",
+    "128": "/icons/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "web_accessible_resources": []
+}

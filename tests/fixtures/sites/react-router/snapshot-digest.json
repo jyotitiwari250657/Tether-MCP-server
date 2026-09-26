@@ -1,0 +1,11 @@
+{
+  "name": "react-router",
+  "title": "React Router SPA",
+  "expectedRefs": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "nodeCount": 12,
+  "generatedAt": "2026-09-20T00:00:00.000Z"
+}

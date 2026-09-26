@@ -1,0 +1,61 @@
+[
+  {
+    "file": "pan.png",
+    "width": 640,
+    "height": 96,
+    "lines": [
+      {
+        "text": "Card 4532015112830366 ends 0366",
+        "y": 30
+      }
+    ]
+  },
+  {
+    "file": "email.png",
+    "width": 640,
+    "height": 96,
+    "lines": [
+      {
+        "text": "Contact user@example.com today",
+        "y": 30
+      }
+    ]
+  },
+  {
+    "file": "bearer.png",
+    "width": 640,
+    "height": 96,
+    "lines": [
+      {
+        "text": "Authorization: Bearer abc123XYZ_session",
+        "y": 30
+      }
+    ]
+  },
+  {
+    "file": "multi.png",
+    "width": 640,
+    "height": 96,
+    "lines": [
+      {
+        "text": "Card 4532015112830366",
+        "y": 14
+      },
+      {
+        "text": "Mail user@example.com",
+        "y": 52
+      }
+    ]
+  },
+  {
+    "file": "plain.png",
+    "width": 640,
+    "height": 96,
+    "lines": [
+      {
+        "text": "Quarterly revenue exceeded expectations",
+        "y": 30
+      }
+    ]
+  }
+]

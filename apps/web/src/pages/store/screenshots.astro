@@ -1,0 +1,67 @@
+---
+// PRD §12.3: Chrome Web Store 1280x800 Screenshot Specifications (Light Ribbon, AC-P14-07)
+import '../../styles/theme.css';
+const SCREENSHOTS = [
+  {
+    id: 'screenshot-1',
+    title: 'Side Panel Mid-Session',
+    desc: 'Real-time tool execution ledger and snapshot inspector while connected to Claude.',
+  },
+  {
+    id: 'screenshot-2',
+    title: 'Tamper-Evident Audit Log',
+    desc: 'Cryptographic write-ahead audit chain recording all tool invocations and state changes.',
+  },
+  {
+    id: 'screenshot-3',
+    title: 'Per-Domain Permission Manager',
+    desc: 'Granular origin controls distinguishing Tier 1 (Read-Only) from Tier 2 (Action) permissions.',
+  },
+  {
+    id: 'screenshot-4',
+    title: 'Connected Client Matrix',
+    desc: 'Active connections across local IDE daemons, Claude desktop, and remote relay sessions.',
+  },
+  {
+    id: 'screenshot-5',
+    title: 'One-Click Kill Switch',
+    desc: 'Immediate 200ms abort of all in-flight actions, session revocation, and socket teardown.',
+  },
+];
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Tether — Store Screenshots Guide</title>
+  <style>
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 2rem; }
+    .container { max-width: 800px; margin: 0 auto; line-height: 1.6; }
+    h1, h2 { color: var(--t-text-900); }
+    .shot-card { padding: 1.25rem; margin: 1rem 0; }
+    .dim { color: var(--t-text-500); font-size: 0.9rem; }
+    h3 { color: var(--t-text-900); }
+    p { color: var(--t-text-700); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chrome Web Store Screenshot Specifications</h1>
+    <p>Required dimensions: <strong>1280 × 800 pixels</strong> (16:10 aspect ratio), PNG or JPEG format.</p>
+
+    <h2>Required Screenshots (5 Total)</h2>
+    {SCREENSHOTS.map((s, idx) => (
+      <div class="t-card shot-card">
+        <h3>{idx + 1}. {s.title}</h3>
+        <p>{s.desc}</p>
+        <p class="dim">Asset target: <code>apps/web/public/store/{s.id}.png</code></p>
+      </div>
+    ))}
+
+    <h2>Automated Generation</h2>
+    <p>To automatically capture or composite these assets, execute:</p>
+    <pre><code>node scripts/generate-store-assets.ts</code></pre>
+  </div>
+</body>
+</html>

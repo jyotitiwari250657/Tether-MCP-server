@@ -1,0 +1,43 @@
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'node',
+    include: ['packages/*/test/**/*.spec.ts', 'apps/*/test/**/*.spec.ts', 'tests/**/*.spec.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      include: [
+        'packages/protocol/src/**/*.ts',
+        'packages/keyring/src/**/*.ts',
+        'packages/ocr/src/**/*.ts',
+        'apps/extension/lib/refs/**/*.ts',
+        'apps/extension/lib/actions/**/*.ts',
+        'apps/extension/lib/policy/**/*.ts',
+        'apps/extension/lib/redact/**/*.ts',
+        'apps/extension/lib/ocr/**/*.ts',
+        'apps/extension/lib/audit/**/*.ts',
+        'apps/extension/lib/transport/**/*.ts',
+        'apps/extension/lib/session/**/*.ts',
+        'apps/extension/lib/vault/**/*.ts',
+        'apps/extension/lib/egress/**/*.ts',
+        'apps/daemon/src/vault/**/*.ts',
+        'apps/daemon/src/ocr/**/*.ts',
+        'apps/daemon/src/server/**/*.ts',
+        'apps/daemon/src/router/**/*.ts',
+        'apps/daemon/src/writers/**/*.ts',
+        'apps/daemon/src/skills/**/*.ts',
+        'apps/daemon/src/nmh/**/*.ts',
+        'apps/daemon/src/update/**/*.ts',
+        'apps/daemon/src/install/**/*.ts',
+        'apps/daemon/src/mcp/**/*.ts',
+        'apps/relay/src/**/*.ts',
+        'apps/extension/lib/webmcp/**/*.ts',
+        'apps/extension/lib/chatbridge/**/*.ts',
+        'packages/eval/src/**/*.ts',
+      ],
+      exclude: ['**/types.ts', '**/*.d.ts'],
+    },
+  },
+});

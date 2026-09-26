@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout Cookie Consent</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div id="page"><h2>Storefront</h2><button id="buy-btn">Buy Now</button></div><div id="consent-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);"><div class="box"><p>Accept all tracking cookies?</p><button id="accept-cookie" onclick="document.getElementById('consent-overlay').remove()">Accept All</button><button id="reject-cookie" onclick="document.getElementById('consent-overlay').remove()">Reject</button></div></div>
+</body>
+</html>

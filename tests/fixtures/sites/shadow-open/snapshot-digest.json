@@ -1,0 +1,11 @@
+{
+  "name": "shadow-open",
+  "title": "Open Shadow DOM",
+  "expectedRefs": [
+    "A1",
+    "AS1",
+    "AS2"
+  ],
+  "nodeCount": 3,
+  "generatedAt": "2026-09-20T00:00:00.000Z"
+}

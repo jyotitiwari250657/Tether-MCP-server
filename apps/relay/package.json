@@ -1,0 +1,30 @@
+{
+  "name": "@tether/relay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@hono/zod-validator": "^0.4.2",
+    "@neondatabase/serverless": "^0.10.4",
+    "@tether/protocol": "workspace:*",
+    "@vercel/kv": "^3.0.0",
+    "hono": "^4.6.14",
+    "jose": "^5.9.6",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "typescript": "^5.7.3",
+    "vercel": "^41.0.0",
+    "vitest": "^2.1.8"
+  }
+}

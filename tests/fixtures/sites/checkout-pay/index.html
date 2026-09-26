@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout Payment Modal</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div><h1>Your Cart</h1><div id="modal"><form id="pay-form"><label>Card Number</label><input id="cc-num" type="text"/><label>CVV</label><input id="cc-cvv" type="password"/><button id="submit-pay" type="button">Pay $99</button></form></div></div>
+<script>
+  document.getElementById('submit-pay')?.addEventListener('click', () => {
+    let conf = document.getElementById('confirmation-region');
+    if (!conf) {
+      conf = document.createElement('div');
+      conf.id = 'confirmation-region';
+      conf.innerHTML = '<h2>Payment Confirmed</h2><p>Your order has been placed.</p>';
+      document.body.appendChild(conf);
+    }
+  });
+</script>
+</body>
+</html>

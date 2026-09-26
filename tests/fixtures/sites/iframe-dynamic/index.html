@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Same-Origin Iframe</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div><h1>Dynamic Frame</h1><button id="add-frame-btn" onclick="let f=document.createElement('iframe');f.srcdoc='<p>Created Frame</p>';document.body.appendChild(f);">Create</button></div>
+</body>
+</html>

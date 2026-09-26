@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "functions": {
+    "api/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/.well-known/:path*",
+      "destination": "/api/wellknown"
+    },
+    {
+      "source": "/api/:match*",
+      "destination": "/api/:match*"
+    }
+  ]
+}

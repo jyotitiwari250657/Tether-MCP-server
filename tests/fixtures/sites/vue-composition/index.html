@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Composition App</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div id="app"><input id="item-input" placeholder="New item"/><button id="add-item" onclick="let li=document.createElement('li');li.innerText=document.getElementById('item-input').value;document.getElementById('list').appendChild(li);">Add</button><ul id="list"><li>Item 1</li></ul></div>
+</body>
+</html>

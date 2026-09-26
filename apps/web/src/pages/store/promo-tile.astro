@@ -1,0 +1,44 @@
+---
+// PRD §12.3: Chrome Web Store 440x280 Small Promo Tile Specification (Light Ribbon, AC-P14-07)
+import '../../styles/theme.css';
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Tether — Promo Tile Specification</title>
+  <style>
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 2rem; }
+    .container { max-width: 800px; margin: 0 auto; line-height: 1.6; }
+    h1, h2 { color: var(--t-text-900); }
+    .tile-preview {
+      width: 440px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    .tile-title { font-size: 2rem; font-weight: 800; letter-spacing: 0.35em; margin: 0; }
+    .tile-sub { color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; margin-top: 0.5rem; text-align: center; padding: 0 1rem; }
+    p, li { color: var(--t-text-700); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Small Promo Tile Specification</h1>
+    <p>Required dimensions: <strong>440 × 280 pixels</strong>, PNG format without alpha transparency.</p>
+
+    <div class="t-gradient-band tile-preview">
+      <div class="tile-title">TETHER</div>
+      <div class="tile-sub">Private Browser Connector for AI Agents</div>
+    </div>
+
+    <h2>Asset Generation</h2>
+    <p>The asset is stored at <code>apps/web/public/store/promo-tile.png</code> and generated via:</p>
+    <pre><code>node scripts/generate-store-assets.ts</code></pre>
+  </div>
+</body>
+</html>

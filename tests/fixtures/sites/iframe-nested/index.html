@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nested Same-Origin Iframe</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div><h1>Root Frame</h1><iframe id="mid-frame" srcdoc="<html><body><iframe id='leaf-frame' srcdoc='<html><body><p>Deep Nested</p></body></html>'></iframe></body></html>"></iframe></div>
+</body>
+</html>

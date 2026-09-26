@@ -1,0 +1,21 @@
+{
+  "name": "@tether/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.31.0",
+    "@astrojs/vercel": "^8.0.0",
+    "astro": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

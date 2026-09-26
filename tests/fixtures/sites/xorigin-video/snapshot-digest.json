@@ -1,0 +1,10 @@
+{
+  "name": "xorigin-video",
+  "title": "Cross-Origin Video Player",
+  "expectedRefs": [
+    "A1",
+    "A2"
+  ],
+  "nodeCount": 7,
+  "generatedAt": "2026-09-20T00:00:00.000Z"
+}

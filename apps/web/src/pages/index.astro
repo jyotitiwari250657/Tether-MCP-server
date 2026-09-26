@@ -1,0 +1,97 @@
+---
+// PRD §1, §2: Tether Landing Page (Light Ribbon theme, AC-P14-07)
+import '../styles/theme.css';
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Tether — Private AI Browser Connector</title>
+  <style>
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 0.35em;
+      margin-bottom: 1rem;
+    }
+    p.tagline {
+      font-size: 1.25rem;
+      color: var(--t-text-500);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      color: var(--t-teal-fg);
+      margin-top: 0;
+    }
+    .card p {
+      color: var(--t-text-700);
+    }
+    .links {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .links a {
+      color: var(--t-blue-fg);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="hero-title">TETHER</h1>
+      <p class="tagline">The local-first browser connector for autonomous AI agents. Zero plaintext on wire. Single point of policy.</p>
+    </header>
+
+    <div class="grid">
+      <div class="t-card card">
+        <h2>Mode A: Local-Only</h2>
+        <p>Direct loopback WebSocket connection between your CLI/IDE and Chrome extension. 100% offline, zero network egress, fully air-gapped.</p>
+      </div>
+      <div class="t-card card">
+        <h2>Mode B: Hosted Relay</h2>
+        <p>End-to-end encrypted relay for web/mobile LLMs (Claude, ChatGPT). Zero plaintext stored at rest. 256-bit X25519 ECDH envelope.</p>
+      </div>
+      <div class="t-card card">
+        <h2>Mode C: WebMCP Proxy</h2>
+        <p>Automatic discovery of site-declared <code>document.modelContext</code> tools, strictly namespaced per-origin to eliminate spoofing risks.</p>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="/pair">Device Pairing</a>
+      <a href="/retention">Data Retention</a>
+      <a href="/threat-model">Threat Model</a>
+      <a href="/protocol">Protocol Reference</a>
+    </div>
+  </div>
+</body>
+</html>

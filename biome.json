@@ -1,0 +1,82 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": [
+      "dist/**",
+      ".output/**",
+      ".turbo/**",
+      ".wxt/**",
+      "coverage/**",
+      "test-results/**",
+      "node_modules/**",
+      "tests/fixtures/**",
+      "apps/web/public/store/**",
+      "**/.astro/**",
+      "eval/**",
+      "release/**",
+      "scratch/**"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "performance": {
+        "noDelete": "off"
+      },
+      "correctness": {
+        "noVoidTypeReturn": "off"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "useConst": "off",
+        "noNonNullAssertion": "warn"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "error",
+        "noGlobalEval": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "include": [
+        "**/*.config.ts",
+        "**/*.config.js",
+        "**/*.config.mjs",
+        "apps/extension/entrypoints/background.ts",
+        "apps/extension/entrypoints/content.ts",
+        "apps/relay/api/**",
+        "apps/web/**",
+        "**/*.spec.ts",
+        "**/test/**"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off",
+            "noNonNullAssertion": "off"
+          }
+        }
+      }
+    }
+  ],
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "always"
+    }
+  }
+}

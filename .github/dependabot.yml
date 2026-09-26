@@ -1,0 +1,26 @@
+# Prompt 13 (AC-P13-04): weekly dependency updates.
+# pnpm is served by the "npm" ecosystem with the pnpm version from packageManager.
+
+version: 2
+
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    versioning-strategy: increase
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: 'deps'
+    labels:
+      - 'dependencies'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    commit-message:
+      prefix: 'ci'
+    labels:
+      - 'dependencies'
+      - 'ci'

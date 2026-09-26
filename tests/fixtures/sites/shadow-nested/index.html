@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nested Shadow DOM</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div><h1>Nested Shadow</h1><outer-comp id="outer"></outer-comp></div><script>const outer=document.getElementById('outer');const s1=outer.attachShadow({mode:'open'});s1.innerHTML='<div id="inner-host"></div>';const s2=s1.getElementById('inner-host').attachShadow({mode:'open'});s2.innerHTML='<button id="deep-btn">Deep Button</button>';</script>
+</body>
+</html>

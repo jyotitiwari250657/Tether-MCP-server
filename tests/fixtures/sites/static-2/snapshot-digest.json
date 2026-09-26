@@ -1,0 +1,13 @@
+{
+  "name": "static-2",
+  "title": "CRM Dashboard",
+  "expectedRefs": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5"
+  ],
+  "nodeCount": 22,
+  "generatedAt": "2026-09-20T00:00:00.000Z"
+}

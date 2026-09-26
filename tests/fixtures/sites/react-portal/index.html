@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Portal Modal</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div id="root"><button id="open-portal" onclick="document.getElementById('portal-root').style.display='block'">Open Modal</button></div><div id="portal-root" style="display:none;"><div class="modal"><p>Portal Dialog Content</p><button id="close-portal" onclick="document.getElementById('portal-root').style.display='none'">Close</button></div></div>
+</body>
+</html>

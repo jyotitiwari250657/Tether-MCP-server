@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Strict Mode Re-render</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div id="root"><p id="counter">Count: 0</p><button id="inc" onclick="let c=document.getElementById('counter');c.innerText='Count: '+(parseInt(c.innerText.split(' ')[1])+1)">Increment</button></div>
+</body>
+</html>

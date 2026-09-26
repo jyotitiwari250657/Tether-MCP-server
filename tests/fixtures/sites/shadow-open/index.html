@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open Shadow DOM</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div><h1>Shadow Open</h1><custom-element id="host"></custom-element></div><script>const host=document.getElementById('host');const shadow=host.attachShadow({mode:'open'});shadow.innerHTML='<p id="shadow-text">Inside Shadow DOM</p><button id="shadow-btn">Shadow Action</button>';</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "types": ["chrome", "vite/client"]
+  },
+  "include": ["entrypoints/**/*", "lib/**/*", "wxt.config.ts", ".wxt/types/**/*"]
+}

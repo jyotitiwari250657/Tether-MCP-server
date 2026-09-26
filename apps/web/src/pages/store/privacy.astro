@@ -1,0 +1,85 @@
+---
+// PRD §11, §12.3: Tether Privacy Policy & Limited Use Disclosure (Light Ribbon, AC-P14-07)
+import '../../styles/theme.css';
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Tether — Privacy Policy & Limited Use Disclosure</title>
+  <style>
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 2rem; }
+    .container { max-width: 800px; margin: 0 auto; line-height: 1.6; }
+    h1, h2, h3 { color: var(--t-text-900); }
+    .card { margin: 1.5rem 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid var(--t-line); padding: 0.75rem; text-align: left; color: var(--t-text-700); }
+    th { background: var(--t-sunken); color: var(--t-text-900); }
+    a { color: var(--t-blue-fg); }
+    li { color: var(--t-text-700); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p>Last updated: September 20, 2026</p>
+
+    <div class="t-card card">
+      <h2>1. Our Privacy Pledge</h2>
+      <p>Tether is built on a fundamental principle: <strong>your browser data belongs to you</strong>. Tether operates as a transparent connector, not a data broker, ad network, or telemetry collector.</p>
+    </div>
+
+    <div class="t-card card">
+      <h2>2. What We Collect and Transmit</h2>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th>Mode A (Local Loopback)</th>
+          <th>Mode B (Encrypted Relay)</th>
+        </tr>
+        <tr>
+          <td><strong>Page Text &amp; DOM Content</strong></td>
+          <td>Stays 100% on-device. Zero external traffic. Sent only to loopback port.</td>
+          <td>Encrypted end-to-end with X25519 ECDH + AES-256-GCM. Relay stores zero plaintext.</td>
+        </tr>
+        <tr>
+          <td><strong>Account Secrets &amp; Credentials</strong></td>
+          <td>Never leaves local machine. Redacted by SW redactor.</td>
+          <td>Strictly redacted prior to serialization. Never transmitted.</td>
+        </tr>
+        <tr>
+          <td><strong>Relay Metadata</strong></td>
+          <td>None. (No relay is used)</td>
+          <td>Temporary device session ID, ephemeral socket state, timestamp.</td>
+        </tr>
+        <tr>
+          <td><strong>Analytics &amp; Trackers</strong></td>
+          <td><strong>ZERO.</strong> No Google Analytics, Mixpanel, or third-party pixels.</td>
+          <td><strong>ZERO.</strong> No third-party SDKs or cross-site tracking.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="t-card card">
+      <h2>3. Data Retention</h2>
+      <ul>
+        <li><strong>Self-Hosted Relay:</strong> 0 days default retention. Messages discarded immediately upon delivery.</li>
+        <li><strong>Managed Cloud Relay:</strong> Transient storage for offline polling queues only (TTL max 30 days, purged on read).</li>
+        <li><strong>Local Audit Log:</strong> Retained locally on your device in encrypted chrome.storage, exportable and clearable at any time.</li>
+      </ul>
+    </div>
+
+    <div class="t-card card">
+      <h2>4. Chrome Web Store Limited Use Disclosure</h2>
+      <p>Tether's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use/">Chrome Web Store User Data Policy</a>, including the Limited Use requirements:</p>
+      <ul>
+        <li>Data accessed by the extension is strictly used to provide or improve the single-purpose browser assistance requested by the user.</li>
+        <li>We do not transfer or sell user data to third parties.</li>
+        <li>We do not use or transfer user data for personalized advertising.</li>
+        <li>We do not use or transfer user data to determine creditworthiness or for lending purposes.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "vue-hydration",
+  "title": "Vue Hydration Page",
+  "expectedRefs": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "nodeCount": 10,
+  "generatedAt": "2026-09-20T00:00:00.000Z"
+}

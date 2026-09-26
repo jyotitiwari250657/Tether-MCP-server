@@ -1,0 +1,134 @@
+/*
+ * Light Ribbon Theme — web app stylesheet (AC-P14-07).
+ * Allowlisted for raw hex by scripts/check-design-tokens.mjs.
+ * Tokens are normative: docs/DESIGN.md and apps/extension/tailwind.config.js.
+ */
+:root {
+  --t-bg: #f3f5f7;
+  --t-surface: #ffffff;
+  --t-sunken: #eceff2;
+  --t-line: #dde3e8;
+  --t-line-strong: #c4ced8;
+  --t-text-900: #22303e;
+  --t-text-700: #3d4c5c;
+  --t-text-500: #6b7a89;
+  --t-teal: #2bb39a;
+  --t-blue: #1d6fb8;
+  --t-brand-grad: linear-gradient(135deg, #2bb39a 0%, #1d6fb8 100%);
+  --t-teal-tint: #e7f6f1;
+  --t-blue-tint: #eaf2fb;
+  --t-red-tint: #fcedec;
+  --t-amber-tint: #fbf3e4;
+  --t-violet-tint: #f0edfb;
+  --t-teal-fg: #0f8a72;
+  --t-blue-fg: #1d6fb8;
+  --t-red-fg: #9e2b25;
+  --t-amber-fg: #9a6a1f;
+  --t-violet-fg: #5b4bc4;
+  --t-shadow-card: 0 1px 2px rgba(16, 24, 40, 0.06), 0 8px 24px rgba(16, 24, 40, 0.08);
+  --t-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Page shell */
+body {
+  background: var(--t-bg);
+  color: var(--t-text-900);
+}
+
+/* Hero title: brand gradient text (Prompt 14 §3 web app) */
+.hero-title {
+  background: var(--t-brand-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cards, wells, pills */
+.t-card {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: 16px;
+  box-shadow: var(--t-shadow-card);
+  padding: 1.5rem;
+}
+
+.t-pill {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.t-pill-teal {
+  background: var(--t-teal-tint);
+  color: var(--t-teal-fg);
+}
+
+.t-pill-blue {
+  background: var(--t-blue-tint);
+  color: var(--t-blue-fg);
+}
+
+.t-pill-red {
+  background: var(--t-red-tint);
+  color: var(--t-red-fg);
+}
+
+.t-pill-amber {
+  background: var(--t-amber-tint);
+  color: var(--t-amber-fg);
+}
+
+.t-pill-violet {
+  background: var(--t-violet-tint);
+  color: var(--t-violet-fg);
+}
+
+code {
+  background: var(--t-sunken);
+  border: 1px solid var(--t-line);
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+  color: var(--t-text-900);
+  font-family: var(--t-font-mono);
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Solid gradient CTA on light surfaces */
+.t-btn-gradient {
+  background: var(--t-brand-grad);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.t-btn-gradient:hover {
+  filter: brightness(0.96);
+}
+
+/* Brand-gradient promo/tile band (white wordmark allowed on gradient) */
+.t-gradient-band {
+  background: var(--t-brand-grad);
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: var(--t-shadow-card);
+}

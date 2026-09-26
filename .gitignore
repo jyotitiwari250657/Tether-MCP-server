@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Build outputs & caches
+dist/
+.output/
+.turbo/
+.wxt/
+.astro/
+.vercel/
+.wrangler/
+*.tsbuildinfo
+
+# Test and coverage artifacts
+coverage/
+test-results/
+playwright-report/
+tests/e2e/.tmp-*/
+
+# Release artifacts — fully gitignored, manifest included.
+# Artifact hashes are reproducible at any time via `pnpm package-release`.
+release/
+
+# Ephemeral local state (debug scratch space, live-eval logs/baselines)
+scratch/
+eval/verbose-*.log
+eval/baseline-live.json
+.tether/
+
+# Environment files (preserve .env.example)
+.env
+.env.*
+!.env.example
+
+# Logs
+/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local agent tooling metadata
+.freebuff/

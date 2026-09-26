@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Hydration Page</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div id="app" data-server-rendered="true"><h1>Hydration Test</h1><p data-v-1234>Pre-rendered state</p><button id="hydrate-btn">Interactive</button></div><script>document.getElementById('app').removeAttribute('data-server-rendered');</script>
+</body>
+</html>

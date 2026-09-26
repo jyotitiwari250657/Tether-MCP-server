@@ -1,0 +1,43 @@
+{
+  "name": "tether",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "pnpm --filter @tether/extension dev",
+    "test": "vitest run packages apps",
+    "test:fuzz": "node -e \"console.log('test:fuzz not implemented until P05'); process.exit(0)\"",
+    "test:e2e": "vitest run tests/e2e --no-file-parallelism",
+    "test:conformance": "node -e \"console.log('test:conformance not implemented until P14'); process.exit(0)\"",
+    "eval": "tsx packages/eval/src/runner.ts",
+    "typecheck": "turbo run typecheck",
+    "lint": "biome check .",
+    "zip": "pnpm --filter @tether/extension zip",
+    "package-release": "tsx scripts/package-release.ts",
+    "trace": "node scripts/check-traceability.mjs",
+    "generate": "turbo run generate && tsx scripts/generate-ocr-fixtures.ts",
+    "check": "node scripts/check-forbidden-apis.mjs && node scripts/check-manifest-permissions.mjs && node scripts/check-store-schema.mjs && node scripts/check-design-tokens.mjs && pnpm --filter @tether/extension build && node scripts/check-bundle-size.mjs && node scripts/check-traceability.mjs && node scripts/check-requirement-ids.mjs && node scripts/generate-directory-report.ts",
+    "knip": "knip"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^20.17.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@webext-core/fake-browser": "^1.4.0",
+    "gifenc": "^1.0.3",
+    "happy-dom": "^16.8.1",
+    "knip": "^5.43.6",
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.4",
+    "tsx": "^4.19.2",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

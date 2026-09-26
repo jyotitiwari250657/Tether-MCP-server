@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Grid Feed</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div id="grid" style="display:flex;"><div class="item">Photo 1</div><div class="item">Photo 2</div></div><button id="next-page" onclick="let d=document.createElement('div');d.className='item';d.innerText='Photo Next';document.getElementById('grid').appendChild(d);">Next</button>
+</body>
+</html>

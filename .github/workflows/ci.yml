@@ -1,0 +1,104 @@
+name: ci
+
+# Prompt 12 §2d — public-repo CI policy:
+#   pull_request        → fast gate only (typecheck, lint, unit tests, pnpm check). No e2e.
+#   push to main        → full suite including headed e2e under xvfb.
+#   schedule (nightly)  → full suite + live eval (expensive; nightly only).
+#   workflow_dispatch   → manual trigger runs everything.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 3 * * *' # Nightly at 03:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    # Fast gate: runs on every PR and every push to main (AC-P12-09).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm i --frozen-lockfile
+      - name: Lint (Biome)
+        run: pnpm biome ci .
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Build
+        run: pnpm build
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Product invariants (forbidden APIs, permissions, store schema)
+        run: |
+          node scripts/check-forbidden-apis.mjs
+          node scripts/check-manifest-permissions.mjs
+          node scripts/check-store-schema.mjs
+      - name: Unit tests
+        run: pnpm test -- --coverage
+      - name: Full check gate (bundle size, traceability, requirement IDs)
+        run: pnpm check
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 30
+
+  e2e:
+    # Full browser suite: main pushes, nightlies, and manual runs only —
+    # too slow for per-PR CI (AC-E2E-08, AC-P12-09).
+    if: github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm i --frozen-lockfile && pnpm build
+      - run: npx playwright install --with-deps chromium
+      - run: xvfb-run -a pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 30
+
+  eval:
+    # Live eval drives real Chrome against served fixtures; nightly + manual only.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm i --frozen-lockfile && pnpm build
+      - run: npx playwright install --with-deps chromium
+      - run: xvfb-run -a pnpm eval -- --live
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-report
+          path: packages/eval/report/
+          retention-days: 30

@@ -1,0 +1,101 @@
+---
+// PRD PRV-04: Data Retention Policy & Telemetry Disclosure Page (Light Ribbon, AC-P14-07)
+import '../styles/theme.css';
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Data Retention & Privacy — Tether</title>
+  <style>
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 3rem 1.5rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      color: var(--t-text-900);
+      margin-top: 2rem;
+      border-bottom: 1px solid var(--t-line);
+      padding-bottom: 0.5rem;
+    }
+    p, li {
+      color: var(--t-text-700);
+      line-height: 1.6;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: var(--t-surface);
+      border: 1px solid var(--t-line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      border-bottom: 1px solid var(--t-line);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--t-text-700);
+    }
+    th {
+      background: var(--t-sunken);
+      color: var(--t-text-900);
+      font-weight: 600;
+    }
+    td strong {
+      color: var(--t-text-900);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="hero-title">What the Relay Carries, Logs and Retains</h1>
+    <p>Tether is built on a strict Zero-Plaintext-at-Rest guarantee (PRD PRV-03). The relay acts as an encrypted transport pipe and never inspects or persists cleartext web data.</p>
+
+    <h2>Data Storage Inventory</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>What is Stored</th>
+          <th>Retention</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Page Content &amp; DOM</td>
+          <td><strong>Nothing.</strong> Payloads are encrypted end-to-end via X25519 ECDH + AES-256-GCM.</td>
+          <td>0 days</td>
+        </tr>
+        <tr>
+          <td>Audit Trail</td>
+          <td>Tool name, timestamp, tier, verdict (allow/deny), SHA-256 hash. <em>No URLs or argument values.</em></td>
+          <td>30 days (default) / 0 days (self-host)</td>
+        </tr>
+        <tr>
+          <td>Network Egress</td>
+          <td>Registrable origin domain (e.g. <code>api.github.com</code>), timestamp, bytes transferred.</td>
+          <td>30 days</td>
+        </tr>
+        <tr>
+          <td>Credentials</td>
+          <td>Client IDs, public keys, SHA-256 refresh token hashes. <em>No plaintext tokens or passwords.</em></td>
+          <td>Until revoked</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Self-Host Parity (PRD FR-608)</h2>
+    <p>In self-hosted deployments (<code>RELAY_MODE=selfhost</code>), metadata retention defaults to 0 days, ensuring zero long-term records are retained on external servers.</p>
+  </div>
+</body>
+</html>

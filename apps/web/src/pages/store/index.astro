@@ -1,0 +1,92 @@
+---
+// PRD §9.8, §12.3: Chrome Web Store listing copy and specification (Light Ribbon, AC-P14-07)
+export const SHORT_DESCRIPTION =
+  'Connect any AI assistant to your real, logged-in browser — with per-site permissions, approvals and a local audit log.';
+export const SINGLE_PURPOSE_STATEMENT =
+  'Tether lets an AI assistant that the user chooses read and act on the web pages the user permits, with per-action approval and a local audit log.';
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Tether — Chrome Web Store Listing</title>
+  <style>
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 2rem; }
+    .container { max-width: 800px; margin: 0 auto; line-height: 1.6; }
+    h1, h2 { color: var(--t-text-900); }
+    .badge { display: inline-block; background: var(--t-blue-tint); border: 1px solid var(--t-line-strong); color: var(--t-blue-fg); padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+    .box { background: var(--t-surface); border: 1px solid var(--t-line); border-radius: 16px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 8px 24px rgba(16, 24, 40, 0.08); }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid var(--t-line); padding: 0.75rem; text-align: left; color: var(--t-text-700); }
+    th { background: var(--t-sunken); color: var(--t-text-900); }
+    th { border: 1px solid var(--t-line); }
+    a { color: var(--t-blue-fg); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    li { color: var(--t-text-700); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">Chrome Web Store Listing Copy</span>
+    <h1>Tether: Browser Connector for AI Agents</h1>
+
+    <div class="box">
+      <h2>Short Description (126 / 132 chars)</h2>
+      <p id="short-desc"><strong>{SHORT_DESCRIPTION}</strong></p>
+    </div>
+
+    <div class="box">
+      <h2>Single-Purpose Statement (PRD §12.3 Verbatim)</h2>
+      <p id="single-purpose"><em>{SINGLE_PURPOSE_STATEMENT}</em></p>
+    </div>
+
+    <div class="box">
+      <h2>Long Description</h2>
+      <p>Tether bridges your real browser session to local and remote AI assistants without sacrificing user control, security, or privacy.</p>
+
+      <h3>Key Operating Modes</h3>
+      <table>
+        <tr>
+          <th>Mode</th>
+          <th>Transport</th>
+          <th>Security &amp; Privacy Posture</th>
+        </tr>
+        <tr>
+          <td><strong>Mode A: Local-Only</strong></td>
+          <td>Loopback WebSocket (127.0.0.1)</td>
+          <td>Zero external traffic. All communication stays strictly on machine.</td>
+        </tr>
+        <tr>
+          <td><strong>Mode B: Hosted Relay</strong></td>
+          <td>End-to-End Encrypted Relay</td>
+          <td>X25519 ECDH + AES-256-GCM. Relay never sees unencrypted page text.</td>
+        </tr>
+        <tr>
+          <td><strong>Mode C: WebMCP Proxy</strong></td>
+          <td>Document Model Context Bridge</td>
+          <td>Declarative tool interfaces from trusted web origins.</td>
+        </tr>
+      </table>
+
+      <h3>Constitutional Guarantees</h3>
+      <ul>
+        <li><strong>Single Point of Policy:</strong> All permission decisions occur solely in the browser extension service worker. External clients cannot grant permissions.</li>
+        <li><strong>Per-Action Informed Approvals:</strong> Sensitive actions (Tier 2) show an explicit diff of destination, value, and action before execution.</li>
+        <li><strong>Local Write-Ahead Audit Log:</strong> Every action is committed to an encrypted local audit log before execution begins.</li>
+        <li><strong>Absolute Kill Switch:</strong> One-click emergency revocation immediately aborts actions and severs all connections within 200ms.</li>
+        <li><strong>Zero Remote Code:</strong> Strictly Manifest V3 compliant. Zero runtime <code>eval</code>, CDN scripts, or external prompt injections.</li>
+      </ul>
+
+      <h3>Getting Started</h3>
+      <ol>
+        <li>Install the Tether extension from the Chrome Web Store.</li>
+        <li>Connect via local daemon (<code>tether serve</code>) or scan your pairing QR code for hosted AI clients.</li>
+        <li>Grant permissions per domain on demand as you browse.</li>
+      </ol>
+
+      <p><a href="/store/privacy">View Full Privacy Policy</a> | <a href="/store/screenshots">View Screenshot Specification</a></p>
+    </div>
+  </div>
+</body>
+</html>

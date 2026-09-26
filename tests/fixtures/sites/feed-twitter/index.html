@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Social Feed</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; color: #1e293b; }
+    button { cursor: pointer; padding: 6px 12px; margin: 4px; }
+    input { padding: 6px; margin: 4px; }
+  </style>
+</head>
+<body>
+<div id="feed"><div class="tweet" id="tweet-1"><p>First post in feed</p></div><div class="tweet" id="tweet-2"><p>Second post in feed</p></div></div><button id="load-more" onclick="let d=document.createElement('div');d.className='tweet';d.innerHTML='<p>Loaded Post</p>';document.getElementById('feed').appendChild(d);">Load More</button>
+</body>
+</html>

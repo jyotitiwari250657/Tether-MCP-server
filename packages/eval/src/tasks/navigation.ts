@@ -1,0 +1,150 @@
+// TRD §12: Navigation + Read eval tasks (12 tasks)
+import type { EvalTask } from '../types';
+
+export const NAVIGATION_TASKS: EvalTask[] = [
+  {
+    id: 'nav-01',
+    name: 'Open CRM dashboard and report pipeline value',
+    group: 'navigation-read',
+    fixture: 'static-2',
+    description: 'Read the total pipeline value from the metrics card',
+    steps: [
+      { tool: 'navigate', args: { url: '/static-2' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: '$450,000' } },
+    ],
+    scoring: { passIf: { foundText: '$450,000' } },
+  },
+  {
+    id: 'nav-02',
+    name: 'Read documentation overview headline',
+    group: 'navigation-read',
+    fixture: 'static-1',
+    description: 'Find the main h1 element and read title',
+    steps: [
+      { tool: 'navigate', args: { url: '/static-1' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Welcome to Acme Docs' } },
+    ],
+    scoring: { passIf: { foundText: 'Welcome to Acme Docs' } },
+  },
+  {
+    id: 'nav-03',
+    name: 'Inspect API reference code snippet',
+    group: 'navigation-read',
+    fixture: 'static-3',
+    description: 'Read code block content',
+    steps: [
+      { tool: 'navigate', args: { url: '/static-3' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'npm install @acme/sdk' } },
+    ],
+    scoring: { passIf: { foundText: 'npm install @acme/sdk' } },
+  },
+  {
+    id: 'nav-04',
+    name: 'Read single-page app initial state',
+    group: 'navigation-read',
+    fixture: 'react-router',
+    description: 'Check active view text',
+    steps: [
+      { tool: 'navigate', args: { url: '/react-router' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Home View' } },
+    ],
+    scoring: { passIf: { foundText: 'Home View' } },
+  },
+  {
+    id: 'nav-05',
+    name: 'Navigate SPA tab and verify view update',
+    group: 'navigation-read',
+    fixture: 'react-router',
+    description: 'Click settings tab and verify view changed',
+    steps: [
+      { tool: 'navigate', args: { url: '/react-router' } },
+      { tool: 'click', args: { ref: 'A2' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Settings View' } },
+    ],
+    scoring: { passIf: { foundText: 'Settings View' } },
+  },
+  {
+    id: 'nav-06',
+    name: 'Inspect SSR pre-hydration text',
+    group: 'navigation-read',
+    fixture: 'vue-hydration',
+    description: 'Read SSR marker text before interaction',
+    steps: [
+      { tool: 'navigate', args: { url: '/vue-hydration' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Pre-rendered state' } },
+    ],
+    scoring: { passIf: { foundText: 'Pre-rendered state' } },
+  },
+  {
+    id: 'nav-07',
+    name: 'Read Nuxt SSR layout title',
+    group: 'navigation-read',
+    fixture: 'nuxt-ssr',
+    description: 'Read layout text',
+    steps: [
+      { tool: 'navigate', args: { url: '/nuxt-ssr' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Nuxt SSR Header' } },
+    ],
+    scoring: { passIf: { foundText: 'Nuxt SSR Header' } },
+  },
+  {
+    id: 'nav-08',
+    name: 'Traverse open shadow DOM root',
+    group: 'navigation-read',
+    fixture: 'shadow-open',
+    description: 'Read text inside open shadow root',
+    steps: [
+      { tool: 'navigate', args: { url: '/shadow-open' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Inside Shadow DOM' } },
+    ],
+    scoring: { passIf: { foundText: 'Inside Shadow DOM' } },
+  },
+  {
+    id: 'nav-09',
+    name: 'Read same-origin iframe button text',
+    group: 'navigation-read',
+    fixture: 'iframe-simple',
+    description: 'Inspect button inside child frame',
+    steps: [
+      { tool: 'navigate', args: { url: '/iframe-simple' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Iframe Action' } },
+    ],
+    scoring: { passIf: { foundText: 'Iframe Action' } },
+  },
+  {
+    id: 'nav-10',
+    name: 'Read nested iframe text',
+    group: 'navigation-read',
+    fixture: 'iframe-nested',
+    description: 'Inspect content inside 2nd level iframe',
+    steps: [
+      { tool: 'navigate', args: { url: '/iframe-nested' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Deep Nested' } },
+    ],
+    scoring: { passIf: { foundText: 'Deep Nested' } },
+  },
+  {
+    id: 'nav-11',
+    name: 'Check social feed initial items',
+    group: 'navigation-read',
+    fixture: 'feed-twitter',
+    description: 'Verify first and second tweet appear in snapshot',
+    steps: [
+      { tool: 'navigate', args: { url: '/feed-twitter' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'First post in feed' } },
+    ],
+    scoring: { passIf: { foundText: 'First post in feed' } },
+  },
+  {
+    id: 'nav-12',
+    name: 'Read news headlines list',
+    group: 'navigation-read',
+    fixture: 'feed-news',
+    description: 'Verify headline 1 is readable',
+    steps: [
+      { tool: 'navigate', args: { url: '/feed-news' } },
+      { tool: 'snapshot', args: {}, expected: { textMatches: 'Breaking News 1' } },
+    ],
+    scoring: { passIf: { foundText: 'Breaking News 1' } },
+  },
+];

@@ -1,0 +1,87 @@
+---
+// Generated from THREAT_MODEL.md (PRD §11.1, TRD §10.2) — Light Ribbon theme, AC-P14-07
+import '../styles/theme.css';
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Threat Model — Tether</title>
+  <style>
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 3rem 1.5rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      color: var(--t-text-900);
+      margin-top: 2rem;
+    }
+    h3 {
+      color: var(--t-text-900);
+      margin-top: 1.5rem;
+    }
+    p, li {
+      color: var(--t-text-700);
+      line-height: 1.6;
+    }
+    .threat-card {
+      margin-bottom: 1.5rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--t-blue-tint);
+      color: var(--t-blue-fg);
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Threat Model &amp; Security Architecture</h1>
+    <p>Tether is architected specifically to defeat the "PleaseFix" attack class demonstrated across commercial browser agents at Black Hat 2026.</p>
+
+    <div class="t-card threat-card">
+      <span class="badge">SEC-01</span>
+      <h3>Indirect Prompt Injection</h3>
+      <p><strong>Control:</strong> Untrusted page data tagged <code>trust: "untrusted"</code>. High-risk actions gated behind confirmation diffs (HR-8).</p>
+    </div>
+
+    <div class="t-card threat-card">
+      <span class="badge">SEC-02</span>
+      <h3>Confused Deputy Across Origins</h3>
+      <p><strong>Control:</strong> Default deny on sensitive categories (banking, healthcare, government, auth). Strict frame boundary checks.</p>
+    </div>
+
+    <div class="t-card threat-card">
+      <span class="badge">SEC-03</span>
+      <h3>Arbitrary JavaScript Execution</h3>
+      <p><strong>Control:</strong> Complete absence of <code>evaluate_script</code> or <code>eval</code>. Prohibited by CI gate and Hard Rule 1.</p>
+    </div>
+
+    <div class="t-card threat-card">
+      <span class="badge">SEC-05</span>
+      <h3>Secret Leakage into Model Context</h3>
+      <p><strong>Control:</strong> Mandatory outbound redaction for PANs, emails, API keys, IBANs. Zero secrets in model context (HR-7).</p>
+    </div>
+
+    <div class="t-card threat-card">
+      <span class="badge">SEC-08</span>
+      <h3>Relay Compromise &amp; Man-in-the-Middle</h3>
+      <p><strong>Control:</strong> End-to-end encrypted envelope (X25519 ECDH + AES-256-GCM). Single point of policy: relay cannot grant capabilities.</p>
+    </div>
+  </div>
+</body>
+</html>
