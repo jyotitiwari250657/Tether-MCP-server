@@ -51,7 +51,7 @@ jobs:
       - name: Full check gate (bundle size, traceability, requirement IDs)
         run: pnpm check
       - name: Upload coverage report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: coverage
@@ -74,7 +74,7 @@ jobs:
       - run: pnpm i --frozen-lockfile && pnpm build
       - run: npx playwright install --with-deps chromium
       - run: xvfb-run -a pnpm test:e2e
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: playwright-traces
@@ -96,7 +96,7 @@ jobs:
       - run: pnpm i --frozen-lockfile && pnpm build
       - run: npx playwright install --with-deps chromium
       - run: xvfb-run -a pnpm eval -- --live
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: eval-report
