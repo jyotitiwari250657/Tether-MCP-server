@@ -29,7 +29,7 @@
     "@playwright/test": "^1.63.0",
     "@types/node": "^20.17.0",
     "@vitest/coverage-v8": "^2.1.8",
-    "@webext-core/fake-browser": "^1.4.0",
+    "@webext-core/fake-browser": "^2.0.1",
     "gifenc": "^1.0.3",
     "happy-dom": "^16.8.1",
     "knip": "^5.43.6",
