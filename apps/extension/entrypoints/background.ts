@@ -4,7 +4,7 @@
  * the session orchestrator, and maintains 10-minute idempotency caching.
  */
 
-import type { Req, Res } from '@tether/protocol';
+import { type Req, type Res, TOOLS } from '@tether/protocol';
 import { defineBackground } from 'wxt/utils/define-background';
 import { bootstrap } from '../lib/boot/bootstrap.js';
 import { EgressMonitor } from '../lib/egress/index.js';
@@ -53,19 +53,44 @@ export async function handleToolRequest(req: Req): Promise<Res> {
         response.ok && typeof response === 'object' && 'result' in response
           ? (response.result as Record<string, unknown> | undefined)
           : undefined;
-      chrome.runtime.sendMessage({
-        kind: 'evt',
-        evt: 'step',
-        payload: {
-          id: req.id,
-          tool: req.tool,
-          ok: response.ok,
-          ms: response.ms,
-          ts: Date.now(),
-          ocrDegraded: result?.ocrDegraded === true,
-          ocrHits: typeof result?.ocrRedactionHits === 'number' ? result.ocrRedactionHits : 0,
-        },
-      });
+      const err = !response.ok && 'error' in response ? response.error : undefined;
+      const errDetails = err?.details as
+        | { diff?: Array<{ label: string; value: string; tone?: string }> }
+        | undefined;
+      const diff =
+        (err && typeof err === 'object' && 'diff' in err
+          ? (err as { diff?: Array<{ label: string; value: string; tone?: string }> }).diff
+          : undefined) ?? errDetails?.diff;
+      const reqArgs = (req.args as { ref?: string }) || {};
+      const spec = TOOLS.find((t) => t.name === req.tool);
+      const tier = spec ? spec.tier : req.tool === 'browser_submit' ? 2 : 1;
+      const stepItem = {
+        id: req.id,
+        tool: req.tool,
+        ref: reqArgs.ref,
+        ok: response.ok,
+        ms: response.ms,
+        ts: Date.now(),
+        ocrDegraded: result?.ocrDegraded === true,
+        ocrHits: typeof result?.ocrRedactionHits === 'number' ? result.ocrRedactionHits : 0,
+        tier,
+        verdict: err?.code === 'NEEDS_CONFIRMATION' ? 'ask' : response.ok ? 'allow' : 'deny',
+        diff,
+      };
+      if (chrome.storage?.session) {
+        chrome.storage.session
+          .get('recent_steps')
+          .then((data) => {
+            const list = Array.isArray(data?.recent_steps) ? data.recent_steps : [];
+            chrome.storage.session
+              .set({
+                recent_steps: [stepItem, ...list].slice(0, 50),
+              })
+              .catch(() => {});
+          })
+          .catch(() => {});
+      }
+      chrome.runtime.sendMessage({ kind: 'evt', evt: 'step', payload: stepItem });
     } catch {
       // Side panel might not be open; ignore error
     }

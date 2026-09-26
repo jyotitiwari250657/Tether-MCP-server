@@ -102,7 +102,7 @@
 | `FR-701` | Covered | 6 | `apps/extension/entrypoints/popup/App.tsx`, `apps/extension/entrypoints/sidepanel/App.tsx`, `apps/extension/entrypoints/sidepanel/SessionTab.tsx`, `apps/extension/entrypoints/sidepanel/tabs.tsx`, `apps/extension/entrypoints/sidepanel/VaultTab.tsx`, `apps/extension/tailwind.config.js` |
 | `FR-702` | Covered | 2 | `apps/extension/entrypoints/background.ts`, `apps/extension/test/session/orchestrator.spec.ts` |
 | `FR-703` | Pending | 0 | — |
-| `FR-704` | Pending | 0 | — |
+| `FR-704` | Covered | 1 | `apps/extension/entrypoints/sidepanel/SessionTab.tsx` |
 | `FR-705` | Pending | 0 | — |
 | `FR-706` | Pending | 0 | — |
 | `FR-707` | Pending | 0 | — |
@@ -126,7 +126,7 @@
 | `HR-5` | Covered | 13 | `packages/protocol/README.md`, `packages/protocol/src/tools/readonly.ts`, `packages/protocol/src/version.ts`, `packages/protocol/test/tools.spec.ts`, `packages/protocol/test/version.spec.ts`, `scripts/generate-directory-report.ts`, `scripts/generate-protocol-docs.mjs` |
 | `HR-6` | Covered | 2 | `apps/extension/lib/session/target.ts`, `apps/extension/test/session/target.spec.ts` |
 | `HR-7` | Covered | 46 | `packages/eval/src/scoring.ts`, `packages/eval/test/eval.spec.ts`, `packages/keyring/src/index.ts`, `packages/ocr/src/backends/linux.ts`, `packages/ocr/src/backends/windows.ts`, `packages/ocr/src/patterns.ts`, `packages/ocr/src/pipeline.ts`, `packages/ocr/src/types.ts`, `packages/protocol/src/errors.ts`, `packages/protocol/test/errors.spec.ts`, `apps/daemon/src/ocr/handler.ts`, `apps/daemon/src/ocr/service.ts`, `apps/daemon/src/server/bootstrap.ts`, `apps/daemon/src/server/responses.ts`, `apps/daemon/src/vault/crypto.ts`, `apps/daemon/src/vault/service.ts`, `apps/daemon/test/ocr/service.spec.ts`, `apps/daemon/test/vault/service.spec.ts`, `apps/extension/lib/actions/type.ts`, `apps/extension/lib/ocr/client.ts`, `apps/extension/lib/redact/detectors.ts`, `apps/extension/lib/redact/index.ts`, `apps/extension/lib/redact/redact.ts`, `apps/extension/lib/refs/accessibleName.ts`, `apps/extension/lib/transport/storage.ts`, `apps/extension/lib/vault/client.ts`, `apps/extension/lib/vault/crypto.ts`, `apps/extension/lib/vault/index.ts`, `apps/extension/lib/vault/types.ts`, `apps/extension/test/redact/redact.spec.ts`, `apps/extension/test/refs/snapshot.spec.ts`, `apps/extension/test/vault/vault.spec.ts`, `apps/relay/test/store/no-content.spec.ts` |
-| `HR-8` | Covered | 21 | `packages/protocol/src/index.ts`, `packages/protocol/src/policy.ts`, `packages/protocol/src/tools/act_submit.ts`, `packages/protocol/src/tools/index.ts`, `packages/protocol/test/tools.spec.ts`, `apps/extension/lib/actions/nav.ts`, `apps/extension/lib/actions/submit.ts`, `apps/extension/lib/actions/type.ts`, `apps/extension/lib/policy/engine.ts`, `apps/extension/test/actions/nav.spec.ts`, `apps/extension/test/policy/engine-matching.spec.ts`, `apps/extension/test/policy/engine-steps.spec.ts`, `apps/extension/test/session/orchestrator.spec.ts`, `apps/extension/test/vault/vault.spec.ts`, `scripts/generate-protocol-docs.mjs` |
+| `HR-8` | Covered | 22 | `packages/protocol/src/index.ts`, `packages/protocol/src/policy.ts`, `packages/protocol/src/tools/act_submit.ts`, `packages/protocol/src/tools/index.ts`, `packages/protocol/test/tools.spec.ts`, `apps/extension/entrypoints/sidepanel/SessionTab.tsx`, `apps/extension/lib/actions/nav.ts`, `apps/extension/lib/actions/submit.ts`, `apps/extension/lib/actions/type.ts`, `apps/extension/lib/policy/engine.ts`, `apps/extension/test/actions/nav.spec.ts`, `apps/extension/test/policy/engine-matching.spec.ts`, `apps/extension/test/policy/engine-steps.spec.ts`, `apps/extension/test/session/orchestrator.spec.ts`, `apps/extension/test/vault/vault.spec.ts`, `scripts/generate-protocol-docs.mjs` |
 | `HR-9` | Covered | 11 | `packages/protocol/src/envelope.ts`, `packages/protocol/src/tools/act_task.ts`, `packages/protocol/src/tools/index.ts`, `packages/protocol/test/envelope.spec.ts`, `packages/protocol/test/tools.spec.ts`, `apps/daemon/src/mcp/server.ts`, `apps/daemon/src/router/dispatch.ts`, `apps/daemon/src/server/responses.ts`, `apps/daemon/test/mcp/server.spec.ts`, `apps/extension/lib/ocr/client.ts` |
 | `MET-01` | Pending | 0 | — |
 | `MET-02` | Pending | 0 | — |
@@ -265,6 +265,6 @@
 ## Summary
 
 - **Total Requirement IDs:** 257
-- **Referenced IDs:** 122
-- **Unreferenced IDs:** 135
-- **Coverage:** 47.5%
+- **Referenced IDs:** 123
+- **Unreferenced IDs:** 134
+- **Coverage:** 47.9%

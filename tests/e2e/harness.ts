@@ -86,6 +86,7 @@ export interface LaunchTetherOptions {
   port?: number;
   /** Random ws port range (default 18800..18900). Ignored when `port` is set. */
   portRange?: { min: number; max: number };
+  deviceScaleFactor?: number;
 }
 
 export interface TetherHarness {
@@ -178,6 +179,7 @@ export async function launchTether(opts: LaunchTetherOptions = {}): Promise<Teth
   const ctx = await chromium.launchPersistentContext(config.userDataDir, {
     headless: config.headless,
     args: config.args,
+    deviceScaleFactor: opts.deviceScaleFactor,
   });
 
   // Wait for service worker to initialize

@@ -9,8 +9,8 @@ intentional future endpoint inside PRD/TRD specs — no action needed for releas
 
 | # | File:Line | Kind | Current value | Action required |
 |---|---|---|---|---|
-| 1 | README.md:32 | [URL] | `https://github.com/tether-ai/tether.git` | Confirm final `owner/repo`, then `node scripts/set-repo-url.mjs --url <url>` |
-| 2 | CONTRIBUTING.md:66 | [URL] | `https://github.com/tether-ai/tether.git` | Same rewrite as #1 (script covers both) |
+| 1 | README.md:32 | [URL] | ~~`https://github.com/tether-ai/tether.git`~~ → **RESOLVED**: `https://github.com/jyotitiwari250657/Tether-MCP-server.git` | None — set via `scripts/set-repo-url.mjs` |
+| 2 | CONTRIBUTING.md:66 | [URL] | ~~`https://github.com/tether-ai/tether.git`~~ → **RESOLVED**: `https://github.com/jyotitiwari250657/Tether-MCP-server.git` | None — set via `scripts/set-repo-url.mjs` |
 | 3 | README.md:5 | [ASSET] | ~~`hero-placeholder.svg`~~ → ~~`hero.svg`~~ → **RESOLVED** (14-FIX-01): `docs/assets/hero.png` — raster-derived lockup from `brand/logo-ref.jpg`; regenerate with `node scripts/compose-brand-assets.mjs` | None — re-run the derivation script only if the source raster changes |
 | 4 | README.md:49 | [ASSET] | ~~`demo-placeholder.svg`~~ → **RESOLVED**: real `docs/assets/demo.gif` captured via `scripts/make-demo-gif.ts` (160 KB, 20 frames) | None — re-record after UI changes with `pnpm exec tsx scripts/make-demo-gif.ts` |
 | 5 | SECURITY.md:18 | [EMAIL] | `security@<YOUR-DOMAIN>` | Configure & verify a mailbox you own, or delete the optional email bullet (GHSA is sufficient alone) |

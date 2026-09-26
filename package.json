@@ -20,7 +20,7 @@
     "zip": "pnpm --filter @tether/extension zip",
     "package-release": "tsx scripts/package-release.ts",
     "trace": "node scripts/check-traceability.mjs",
-    "generate": "turbo run generate && tsx scripts/generate-ocr-fixtures.ts",
+    "generate": "turbo run generate && tsx scripts/generate-ocr-fixtures.ts && tsx scripts/capture-live-panels.mjs --if-flag",
     "check": "node scripts/check-forbidden-apis.mjs && node scripts/check-manifest-permissions.mjs && node scripts/check-store-schema.mjs && node scripts/check-design-tokens.mjs && pnpm --filter @tether/extension build && node scripts/check-bundle-size.mjs && node scripts/check-traceability.mjs && node scripts/check-requirement-ids.mjs && node scripts/generate-directory-report.ts",
     "knip": "knip"
   },

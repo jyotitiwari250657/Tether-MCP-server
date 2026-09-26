@@ -1,6 +1,6 @@
 # Tether Directory Conformance Report
 
-> Generated: 2026-09-26T13:53:24.930Z
+> Generated: 2026-09-26T15:02:58.254Z
 > Target Platforms: Anthropic Connector Directory (PRD §12.4), OpenAI Plugin Registry (PRD §12.5)
 
 ---

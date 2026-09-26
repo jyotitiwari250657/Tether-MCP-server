@@ -63,7 +63,7 @@ they change in-product notices are required (PRD HR-14).
 ### Getting started
 
 ```bash
-git clone https://github.com/tether-ai/tether.git
+git clone https://github.com/jyotitiwari250657/Tether-MCP-server.git
 cd tether
 pnpm install
 pnpm build
