@@ -17,7 +17,7 @@
     "@tether/protocol": "workspace:*",
     "@vercel/kv": "^3.0.0",
     "hono": "^4.6.14",
-    "jose": "^5.9.6",
+    "jose": "^6.2.12",
     "zod": "^3.23.8",
     "zod-to-json-schema": "^3.23.5"
   },
