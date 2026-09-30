@@ -1,3 +1,5 @@
+[![M8ven Verified](https://m8ven.ai/badge/mcp/jyotitiwari250657/tether-mcp-server?variant=verified)](https://m8ven.ai/mcp/jyotitiwari250657/tether-mcp-server)
+
 <div align="center">
 
 ![Tether Hero](docs/assets/hero.png)
